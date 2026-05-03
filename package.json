@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^24.9.1",
+    "@types/node": "^25.6.0",
     "oxlint": "^1.50.0",
     "typescript": "^5.9.3"
   },
