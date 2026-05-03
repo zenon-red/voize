@@ -1,0 +1,117 @@
+.github/workflows/ci.yml
+  96b61c2b642a9123 19-20,22,25-28,31-34
+  afe20e6dd21330e5 17,21,23,30
+src/tools/generateTtsUrl.ts
+  afe20e6dd21330e5 4-133
+src/lib/provider.ts
+  96b61c2b642a9123 31
+  afe20e6dd21330e5 1-30,32-115
+src/lib/storage.ts
+  afe20e6dd21330e5 1-44
+docs/commands.md
+  96b61c2b642a9123 5-11,16,25
+  afe20e6dd21330e5 1-4,12-15,17-24,26-40
+src/index.ts
+  96b61c2b642a9123 1
+  afe20e6dd21330e5 2-82
+src/utils/validate.ts
+  afe20e6dd21330e5 1-47
+src/utils/env.ts
+  afe20e6dd21330e5 1-38
+scripts/mcp-smoke.mjs
+  afe20e6dd21330e5 12,48-58,104-106
+  96b61c2b642a9123 1-3,13-46,74-75
+docs/architecture.md
+  afe20e6dd21330e5 1-90
+docs/providers.md
+  afe20e6dd21330e5 1-47
+.env.example
+  afe20e6dd21330e5 4-24
+  96b61c2b642a9123 1-3
+.husky/commit-msg
+  96b61c2b642a9123 4
+.husky/pre-commit
+  96b61c2b642a9123 3
+  afe20e6dd21330e5 1
+docs/README.md
+  afe20e6dd21330e5 3-11
+docs/getting-started.md
+  afe20e6dd21330e5 1-4,6-12,14-32,34-42,45-52,55-56,58
+  96b61c2b642a9123 5,13,33,43-44,53-54,57
+docs/examples.md
+  afe20e6dd21330e5 1-57
+CONTRIBUTING.md
+  afe20e6dd21330e5 80
+src/utils/log.ts
+  afe20e6dd21330e5 1-9
+src/errors.ts
+  afe20e6dd21330e5 1-10
+src/utils/retry.ts
+  afe20e6dd21330e5 1-26
+.github/CODEOWNERS
+  afe20e6dd21330e5 2
+.github/settings.yml
+  afe20e6dd21330e5 5-21
+.husky/pre-push
+  96b61c2b642a9123 3
+  afe20e6dd21330e5 1
+package.json
+  96b61c2b642a9123 17-18,26,32
+  afe20e6dd21330e5 1-3,5-16,19-25,27-31,33-35
+skills/voize/SKILL.md
+  afe20e6dd21330e5 2-3,12-18,20-46,50,59-62,64-65,73-84
+  96b61c2b642a9123 19,49,55,63,67
+.github/dependabot.yml
+  afe20e6dd21330e5 3-12
+tsconfig.json
+  afe20e6dd21330e5 1-14
+README.md
+  afe20e6dd21330e5 4-8
+  4398745722f9f42a 2,16-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "f2e05aff3f7d146340a4671631254fbd36f821a8",
+  "prompts": {
+    "4398745722f9f42a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_20fdd5e8dffen7RFFYPaMQkQRI",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 46,
+      "total_deletions": 49,
+      "accepted_lines": 46,
+      "overriden_lines": 0
+    },
+    "96b61c2b642a9123": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_21e651562ffePShZ11xjHDj6Mj",
+        "model": "opencode-go/kimi-k2.6"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 72,
+      "total_deletions": 47,
+      "accepted_lines": 65,
+      "overriden_lines": 0
+    },
+    "afe20e6dd21330e5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_22396235dffe1eHPzLmTHmhk4C",
+        "model": "openai/gpt-5.3-codex"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 1174,
+      "total_deletions": 459,
+      "accepted_lines": 780,
+      "overriden_lines": 3
+    }
+  }
+}
