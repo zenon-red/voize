@@ -1,0 +1,117 @@
+CONTRIBUTING.md
+  afe20e6dd21330e5 80
+docs/README.md
+  afe20e6dd21330e5 3-11
+docs/providers.md
+  afe20e6dd21330e5 1-47
+src/utils/log.ts
+  afe20e6dd21330e5 1-9
+README.md
+  4398745722f9f42a 2,16-63
+  afe20e6dd21330e5 4-8
+tsconfig.json
+  afe20e6dd21330e5 1-14
+.env.example
+  96b61c2b642a9123 1-3
+  afe20e6dd21330e5 4-24
+docs/architecture.md
+  afe20e6dd21330e5 1-90
+docs/getting-started.md
+  afe20e6dd21330e5 1-4,6-12,14-32,34-42,45-52,55-56,58
+  96b61c2b642a9123 5,13,33,43-44,53-54,57
+src/lib/storage.ts
+  afe20e6dd21330e5 1-44
+.husky/pre-commit
+  afe20e6dd21330e5 1
+  96b61c2b642a9123 3
+src/utils/retry.ts
+  afe20e6dd21330e5 1-26
+.github/settings.yml
+  afe20e6dd21330e5 5-21
+package.json
+  96b61c2b642a9123 17-18,26,32
+  afe20e6dd21330e5 1-16,19-25,27-31,33-35
+.github/dependabot.yml
+  afe20e6dd21330e5 3-12
+.husky/commit-msg
+  96b61c2b642a9123 4
+src/utils/env.ts
+  afe20e6dd21330e5 1-38
+.github/CODEOWNERS
+  afe20e6dd21330e5 2
+skills/voize/SKILL.md
+  96b61c2b642a9123 19,49,55,63,67
+  afe20e6dd21330e5 2-18,20-46,50,59-62,64-65,73-84
+src/utils/validate.ts
+  afe20e6dd21330e5 1-47
+src/tools/generateTtsUrl.ts
+  afe20e6dd21330e5 4-133
+scripts/mcp-smoke.mjs
+  96b61c2b642a9123 1-3,13-46,74-75
+  afe20e6dd21330e5 12,48-58,104-106
+src/index.ts
+  96b61c2b642a9123 1
+  afe20e6dd21330e5 2-82
+src/lib/provider.ts
+  96b61c2b642a9123 31
+  afe20e6dd21330e5 1-30,32-115
+.github/workflows/ci.yml
+  96b61c2b642a9123 19-20,22,25-28,31-34
+  afe20e6dd21330e5 17,21,23,30
+src/errors.ts
+  afe20e6dd21330e5 1-10
+docs/examples.md
+  afe20e6dd21330e5 1-57
+docs/commands.md
+  96b61c2b642a9123 5-11,16,25
+  afe20e6dd21330e5 1-4,12-15,17-24,26-40
+.husky/pre-push
+  afe20e6dd21330e5 1
+  96b61c2b642a9123 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "6d6e98f145c21d5f4c5bfac65514bfd94a82ab50",
+  "prompts": {
+    "4398745722f9f42a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_20fdd5e8dffen7RFFYPaMQkQRI",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 46,
+      "total_deletions": 49,
+      "accepted_lines": 49,
+      "overriden_lines": 0
+    },
+    "96b61c2b642a9123": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_21e651562ffePShZ11xjHDj6Mj",
+        "model": "opencode-go/kimi-k2.6"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 72,
+      "total_deletions": 47,
+      "accepted_lines": 84,
+      "overriden_lines": 0
+    },
+    "afe20e6dd21330e5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_22396235dffe1eHPzLmTHmhk4C",
+        "model": "openai/gpt-5.3-codex"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 1174,
+      "total_deletions": 459,
+      "accepted_lines": 958,
+      "overriden_lines": 0
+    }
+  }
+}
