@@ -1,0 +1,6 @@
+# Commit message hook
+# Add commit message validation if needed
+# Example with commitlint:
+#   bun run lint:commit -- "$1"
+
+# TODO: Add commit message validation if desired
