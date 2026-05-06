@@ -1,0 +1,48 @@
+src/types.ts
+  2b4b9e8e22df83d5 8
+.github/workflows/ci.yml
+  2b4b9e8e22df83d5 17,20
+tsconfig.json
+  2b4b9e8e22df83d5 11-12
+package.json
+  afe20e6dd21330e5 23
+  2b4b9e8e22df83d5 14,22,24,28-30
+src/tools/generateTtsUrl.ts
+  2b4b9e8e22df83d5 149
+  afe20e6dd21330e5 35-46,69-75,142-147
+.github/workflows/release.yml
+  2b4b9e8e22df83d5 1-91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "1b913a136f393637c112f30f5ad8f091e44058b0",
+  "prompts": {
+    "2b4b9e8e22df83d5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_2026ab99dffe0gGvGgzabzcX73",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 125,
+      "total_deletions": 31,
+      "accepted_lines": 103,
+      "overriden_lines": 0
+    },
+    "afe20e6dd21330e5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_22396235dffe1eHPzLmTHmhk4C",
+        "model": "openai/gpt-5.3-codex"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 1174,
+      "total_deletions": 459,
+      "accepted_lines": 171,
+      "overriden_lines": 0
+    }
+  }
+}
