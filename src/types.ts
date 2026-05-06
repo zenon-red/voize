@@ -5,7 +5,7 @@ export type ToolError = {
   stage: ToolStage;
 };
 
-export type ToolSuccess = {
+export type ToolSuccess = Record<string, unknown> & {
   audioUrl: string;
   transcript: string;
   voice: string;

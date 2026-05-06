@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "build": "rm -rf build/ && tsc && chmod 755 build/index.js",
+    "compile": "rm -rf dist/ && bun build --compile src/index.ts --outfile dist/voize",
     "dev": "tsc --watch",
     "lint": "oxlint src/",
     "typecheck": "tsc --noEmit",
@@ -18,15 +19,15 @@
     "smoke:live": "bun run scripts/mcp-smoke.mjs --live"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.914.0",
-    "@modelcontextprotocol/sdk": "^1.27.1",
-    "zod": "^4.3.6"
+    "@aws-sdk/client-s3": "^3.1043.0",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^24.9.1",
-    "oxlint": "^1.50.0",
-    "typescript": "^5.9.3"
+    "@types/node": "^25.6.0",
+    "oxlint": "^1.63.0",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "bun": ">=1.0.0"

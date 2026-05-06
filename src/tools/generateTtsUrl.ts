@@ -17,6 +17,13 @@ const inputSchema = z.object({
   responseFormat: z.enum(['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm', 'pcm16']).optional(),
 });
 
+const outputSchema = z.object({
+  audioUrl: z.string(),
+  transcript: z.string(),
+  voice: z.string(),
+  durationMs: z.number(),
+});
+
 type EnvConfig = {
   ttsApiKey: string;
   defaultVoice: string;
@@ -25,11 +32,18 @@ type EnvConfig = {
   publicDomain: string;
 };
 
-function textResult(payload: ToolError | ToolSuccess, isError = false) {
-  return {
-    content: [{ type: 'text' as const, text: JSON.stringify(payload) }],
-    isError,
-  };
+function textResult(payload: ToolSuccess, structured?: Record<string, unknown>): { content: { type: 'text'; text: string }[]; structuredContent?: Record<string, unknown> };
+function textResult(payload: ToolError, isError: true): { content: { type: 'text'; text: string }[]; isError: true };
+function textResult(payload: ToolError | ToolSuccess, structuredOrIsError?: Record<string, unknown> | true): { content: { type: 'text'; text: string }[]; structuredContent?: Record<string, unknown>; isError?: true };
+function textResult(payload: ToolError | ToolSuccess, structuredOrIsError?: Record<string, unknown> | true) {
+  const base = { content: [{ type: 'text' as const, text: JSON.stringify(payload) }] };
+  if (structuredOrIsError === true) {
+    return { ...base, isError: true };
+  }
+  if (structuredOrIsError && typeof structuredOrIsError === 'object') {
+    return { ...base, structuredContent: structuredOrIsError };
+  }
+  return base;
 }
 
 function mimeTypeFromFormat(format: string): string {
@@ -52,6 +66,13 @@ export function registerGenerateTtsUrlTool(server: McpServer, env: EnvConfig, st
       title: 'Generate TTS URL',
       description: 'Generates TTS audio, uploads to storage, returns a public URL.',
       inputSchema,
+      outputSchema,
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true,
+      },
     },
     async (args) => {
       const start = Date.now();
@@ -118,15 +139,14 @@ export function registerGenerateTtsUrlTool(server: McpServer, env: EnvConfig, st
         logStage('upload', 'ok', { durationMs: Date.now() - uploadStart, key });
 
         const audioUrl = `https://${env.publicDomain}/${key}`;
-        return textResult(
-          {
-            audioUrl,
-            transcript,
-            voice: voiceLabel,
-            durationMs: Date.now() - start,
-          },
-          false
-        );
+        const successPayload: ToolSuccess = {
+          audioUrl,
+          transcript,
+          voice: voiceLabel,
+          durationMs: Date.now() - start,
+        };
+
+        return textResult(successPayload, successPayload);
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         const stage: ToolError['stage'] =
