@@ -1,0 +1,69 @@
+docs/examples.md
+  afe20e6dd21330e5 34-38
+  s_3cffe4728a7d1f::t_3f5117de87e961 39-44
+  s_3cffe4728a7d1f::t_1cc5202c757494 33
+docs/architecture.md
+  s_3cffe4728a7d1f::t_3adf4d7aaca8e7 36
+  s_3cffe4728a7d1f::t_249bd3fd6650cb 37,55-57
+skills/voize/SKILL.md
+  s_3cffe4728a7d1f::t_a699e19c7508fc 85
+  s_3cffe4728a7d1f::t_a7ef68c327293a 86
+src/tools/generateTtsUrl.ts
+  s_3cffe4728a7d1f::t_cfb1dfc12b1396 11,21,74,89,91-92,94,99,108,114,121
+  s_3cffe4728a7d1f::t_62a9bb23918e11 7-10,12,20,98
+  s_3cffe4728a7d1f::t_1cb519463cc215 109-111
+  s_3cffe4728a7d1f::t_04bbccafece713 88,93,95-97,107,112-113
+  3cffe4728a7d1fe8 73
+src/utils/validate.ts
+  s_3cffe4728a7d1f::t_b417e8070da305 1,48-58,60,65-80,82,84,86
+  afe20e6dd21330e5 33,35-36,38-39,41-42
+  s_3cffe4728a7d1f::t_29cbb282b4f8d7 13-20,32,34,37,40,89-97,100-104,107-159
+  3cffe4728a7d1fe8 2,8-12
+scripts/mcp-smoke.mjs
+  s_3cffe4728a7d1f::t_1e402355d0ecc0 20,60
+  s_3cffe4728a7d1f::t_e9b70de0d3876e 13,21,59,61
+README.md
+  s_3cffe4728a7d1f::t_c0d3ed2a5ede98 62-68,71
+  s_3cffe4728a7d1f::t_56ded6745f3558 69-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "bbd6cdd4f354034f3c294646421403330958a1d6",
+  "prompts": {
+    "3cffe4728a7d1fe8": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_200d3f2b3ffeij4TTFgocjF57Y",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>",
+      "total_additions": 49,
+      "total_deletions": 2,
+      "accepted_lines": 7,
+      "overriden_lines": 0
+    },
+    "afe20e6dd21330e5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_22396235dffe1eHPzLmTHmhk4C",
+        "model": "openai/gpt-5.3-codex"
+      },
+      "human_author": "ZŌE",
+      "total_additions": 1174,
+      "total_deletions": 459,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_3cffe4728a7d1f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_200d3f2b3ffeij4TTFgocjF57Y",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": null
+    }
+  }
+}
