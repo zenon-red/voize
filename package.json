@@ -1,6 +1,6 @@
 {
   "name": "@zenon-red/voize",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP server for TTS generation and storage-backed public audio URLs",
   "type": "module",
   "bin": {
