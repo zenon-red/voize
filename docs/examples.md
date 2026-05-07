@@ -30,7 +30,18 @@ Input:
 ```json
 {
   "transcript": "Please pause for a short status update.",
-  "voiceSample": "data:audio/mpeg;base64,<BASE64_SAMPLE>",
+  "voiceSampleUrl": "https://audio.zenon.red/voice/samples/zoe-sample.mp3",
+  "context": "Calm and clear.",
+  "responseFormat": "wav"
+}
+```
+
+Alternative input (local file path):
+
+```json
+{
+  "transcript": "Please pause for a short status update.",
+  "voiceSamplePath": "/tmp/sample.wav",
   "context": "Calm and clear.",
   "responseFormat": "wav"
 }

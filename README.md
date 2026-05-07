@@ -58,6 +58,17 @@ bun run build
 bun run build/index.js
 ```
 
+### Hosted ZŌE Voice Sample
+
+Use this hosted reference sample when to generate ZŌE voice from a reference file:
+
+https://audio.zenon.red/voice/samples/zoe-sample.mp3
+
+For `generate_tts_url`, you should either:
+
+- pass `voiceSampleUrl` directly with the hosted sample URL, or
+- download it locally and pass `voiceSamplePath`.
+
 ## Contributing
 
 This project is intended to be maintained autonomously by agents in the future. Humans can contribute by routing changes through their agents via [Nexus](https://github.com/zenon-red/nexus). See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.

@@ -1,6 +1,5 @@
 #!/usr/bin/env bun
 
-import { readFileSync } from 'node:fs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 
@@ -11,36 +10,22 @@ function parseArgs() {
     transcript: 'Smoke test transcript from voize.',
     voice: 'default_voice',
     voiceSamplePath: undefined,
+    voiceSampleUrl: undefined,
   };
 
   for (let i = 0; i < args.length; i += 1) {
     if (args[i] === '--live') out.live = true;
     if (args[i] === '--transcript' && args[i + 1]) out.transcript = args[i + 1];
     if (args[i] === '--voice' && args[i + 1]) out.voice = args[i + 1];
-    if (args[i] === '--voiceSample' && args[i + 1]) out.voiceSamplePath = args[i + 1];
+    if (args[i] === '--voiceSamplePath' && args[i + 1]) out.voiceSamplePath = args[i + 1];
+    if (args[i] === '--voiceSampleUrl' && args[i + 1]) out.voiceSampleUrl = args[i + 1];
   }
 
   return out;
 }
 
-function encodeVoiceSample(filePath) {
-  const data = readFileSync(filePath);
-  if (data.length > 10 * 1024 * 1024) {
-    throw new Error('Voice sample too large (max 10 MB)');
-  }
-  const ext = filePath.split('.').pop()?.toLowerCase() ?? 'mp3';
-  const mime = { mp3: 'audio/mpeg', wav: 'audio/wav' }[ext] ?? 'audio/mpeg';
-  const b64 = Buffer.from(data).toString('base64');
-  return `data:${mime};base64,${b64}`;
-}
-
 async function main() {
   const opts = parseArgs();
-
-  let voiceSample;
-  if (opts.voiceSamplePath) {
-    voiceSample = encodeVoiceSample(opts.voiceSamplePath);
-  }
 
   const transport = new StdioClientTransport({
     command: 'bun',
@@ -71,8 +56,9 @@ async function main() {
       ? {
           transcript: opts.transcript,
           voice: opts.voice,
-          responseFormat: voiceSample ? 'wav' : 'mp3',
-          ...(voiceSample ? { voiceSample } : {}),
+          responseFormat: opts.voiceSamplePath || opts.voiceSampleUrl ? 'wav' : 'mp3',
+          ...(opts.voiceSamplePath ? { voiceSamplePath: opts.voiceSamplePath } : {}),
+          ...(opts.voiceSampleUrl ? { voiceSampleUrl: opts.voiceSampleUrl } : {}),
         }
       : {
           transcript: '   ',

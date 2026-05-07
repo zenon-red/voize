@@ -4,7 +4,12 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { generateBuiltInTts, generateVoiceCloneTts, type ResponseFormat } from '../lib/provider.js';
 import { uploadToStorage } from '../lib/storage.js';
 import { logStage } from '../utils/log.js';
-import { extensionFromFormat, normalizeTranscript, parseBase64Sample } from '../utils/validate.js';
+import {
+  extensionFromFormat,
+  normalizeTranscript,
+  parseVoiceSamplePath,
+  parseVoiceSampleUrl,
+} from '../utils/validate.js';
 import { ToolExecutionError } from '../errors.js';
 import type { ToolError, ToolSuccess } from '../types.js';
 import type { S3Client } from '@aws-sdk/client-s3';
@@ -12,7 +17,8 @@ import type { S3Client } from '@aws-sdk/client-s3';
 const inputSchema = z.object({
   transcript: z.string(),
   voice: z.string().optional(),
-  voiceSample: z.string().optional(),
+  voiceSamplePath: z.string().optional(),
+  voiceSampleUrl: z.string().optional(),
   context: z.string().optional(),
   responseFormat: z.enum(['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm', 'pcm16']).optional(),
 });
@@ -64,7 +70,8 @@ export function registerGenerateTtsUrlTool(server: McpServer, env: EnvConfig, st
     'generate_tts_url',
     {
       title: 'Generate TTS URL',
-      description: 'Generates TTS audio, uploads to storage, returns a public URL.',
+      description:
+        'Generates TTS audio, uploads to storage, returns a public URL. Use voiceSamplePath for a local .mp3/.wav file or voiceSampleUrl for a hosted .mp3/.wav file.',
       inputSchema,
       outputSchema,
       annotations: {
@@ -78,9 +85,18 @@ export function registerGenerateTtsUrlTool(server: McpServer, env: EnvConfig, st
       const start = Date.now();
       try {
         const transcript = normalizeTranscript(args.transcript);
-        const voiceSample = args.voiceSample?.trim();
+        const voiceSamplePath = args.voiceSamplePath?.trim();
+        const voiceSampleUrl = args.voiceSampleUrl?.trim();
 
-        const mode = voiceSample ? 'clone' : 'builtin';
+        const sampleInputCount = [voiceSamplePath, voiceSampleUrl].filter(Boolean).length;
+        if (sampleInputCount > 1) {
+          throw new ToolExecutionError(
+            'Provide only one of voiceSamplePath or voiceSampleUrl.',
+            'validation'
+          );
+        }
+
+        const mode = sampleInputCount > 0 ? 'clone' : 'builtin';
         const responseFormat: ResponseFormat =
           args.responseFormat ?? (mode === 'clone' ? 'wav' : 'mp3');
 
@@ -88,14 +104,21 @@ export function registerGenerateTtsUrlTool(server: McpServer, env: EnvConfig, st
         let voiceLabel: string;
 
         const ttsStart = Date.now();
-        if (voiceSample) {
-          const parsed = parseBase64Sample(voiceSample);
+        if (mode === 'clone') {
+          if (!voiceSamplePath && !voiceSampleUrl) {
+            throw new ToolExecutionError('Missing voice sample input.', 'validation');
+          }
+
+          const parsed = voiceSamplePath
+            ? await parseVoiceSamplePath(voiceSamplePath)
+            : await parseVoiceSampleUrl(voiceSampleUrl as string);
           if (process.env.VOIZE_DEBUG) {
             console.error(
               JSON.stringify({
                 stage: 'validation',
                 status: 'ok',
                 mode,
+                sampleSource: voiceSamplePath ? 'path' : 'url',
                 sampleBytes: parsed.bytes.length,
                 sampleMime: parsed.mime,
               })

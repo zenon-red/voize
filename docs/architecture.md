@@ -33,7 +33,8 @@ Input:
 
 - `transcript` (required, non-empty, <= 500 chars)
 - `voice` (optional built-in voice)
-- `voiceSample` (optional base64 mp3/wav, <= 10 MB decoded)
+- `voiceSamplePath` (optional local file path to mp3/wav, <= 10 MB)
+- `voiceSampleUrl` (optional http/https URL to mp3/wav, <= 10 MB)
 - `context` (optional style prompt)
 - `responseFormat` (optional, defaults `mp3` built-in / `wav` clone)
 
@@ -51,8 +52,9 @@ Output (failure):
 
 ## Mode Selection
 
-- No `voiceSample` -> built-in mode
-- With `voiceSample` -> sample-based voice-clone mode
+- No `voiceSamplePath` and no `voiceSampleUrl` -> built-in mode
+- With `voiceSamplePath` or `voiceSampleUrl` -> sample-based voice-clone mode
+- `voiceSamplePath` and `voiceSampleUrl` are mutually exclusive
 
 ## Backend Notes
 

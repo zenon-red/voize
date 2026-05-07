@@ -82,3 +82,5 @@ No automated tests yet; validate by MCP smoke call with built-in and voice-clone
 - Return structured JSON in MCP text content for both success and failure.
 - Keep public-domain enforcement at startup.
 - Do not introduce direct Nexus/STDB calls; keep boundary at URL generation.
+- Hosted reference voice sample for cloning workflows: `https://audio.zenon.red/voice/samples/zoe-sample.mp3`.
+- For clone calls, pass `voiceSampleUrl` directly, or download and pass `voiceSamplePath`.
