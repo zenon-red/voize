@@ -1,0 +1,19 @@
+package.json
+  s_3cffe4728a7d1f::t_edeb8d26902ed3 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "f6d0c3d1e0387bba8c27354ae47039c372f0fcfb",
+  "prompts": {},
+  "sessions": {
+    "s_3cffe4728a7d1f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_200d3f2b3ffeij4TTFgocjF57Y",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
