@@ -1,0 +1,46 @@
+docs/architecture.md
+  s_3cffe4728a7d1f::t_3adf4d7aaca8e7 37,55-57
+src/tools/generateTtsUrl.ts
+  3cffe4728a7d1fe8 73
+  s_3cffe4728a7d1f::t_62a9bb23918e11 7-12,21,74,97
+  s_3cffe4728a7d1f::t_04bbccafece713 89,91-96,98,106,111-112,120
+  s_3cffe4728a7d1f::t_1cb519463cc215 107-110
+  s_3cffe4728a7d1f::t_10e538ee31e7c3 113
+docs/examples.md
+  s_3cffe4728a7d1f::t_3f5117de87e961 39-49
+scripts/mcp-smoke.mjs
+  s_3cffe4728a7d1f::t_1e402355d0ecc0 20,61
+  s_3cffe4728a7d1f::t_cc2e89be8500d4 12,21,59-60
+src/utils/validate.ts
+  s_3cffe4728a7d1f::t_b417e8070da305 1,61-105
+  3cffe4728a7d1fe8 2,8-12,26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "ba2c6d8e10ee9d45c7fc18aba80b30b885611c80",
+  "prompts": {
+    "3cffe4728a7d1fe8": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_200d3f2b3ffeij4TTFgocjF57Y",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>",
+      "total_additions": 49,
+      "total_deletions": 2,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_3cffe4728a7d1f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_200d3f2b3ffeij4TTFgocjF57Y",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
